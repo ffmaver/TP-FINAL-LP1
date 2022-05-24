@@ -2,6 +2,8 @@
 #include "cMantenimiento.h"
 #include "cEquipo.h"
 
+using namespace std;
+
 class cPreventivo :
     private cMantenimiento
 {

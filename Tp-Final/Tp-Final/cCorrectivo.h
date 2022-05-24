@@ -1,5 +1,9 @@
 #pragma once
 #include "cMantenimiento.h"
+
+using namespace std;
+
+
 class cCorrectivo :
     private cMantenimiento
 {
