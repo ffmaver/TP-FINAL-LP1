@@ -5,9 +5,9 @@ using namespace std;
 
 class cMantenimiento
 {
-	int costo;
+	int Costo;
 public:
-	cMantenimiento();
+	cMantenimiento(int costo);
 	virtual ~cMantenimiento();
 	void virtual RealizarMantenimiento();
 };

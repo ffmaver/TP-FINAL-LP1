@@ -5,11 +5,11 @@ using namespace std;
 
 
 class cCorrectivo :
-    private cMantenimiento
+    public cMantenimiento
 {
 
 public:
-    cCorrectivo();
+    cCorrectivo(int costo);
     ~cCorrectivo();
     void RealizarMantenimiento(int plata);
 

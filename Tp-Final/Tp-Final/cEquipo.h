@@ -5,7 +5,8 @@
 
 
 using namespace std;
-enum estado{/*blabla estado nose que va aca*/};
+enum estado{en_uso, en_espera, fuera_de_servicio, en_mantenimiento};
+enum lugar{almacenamiento, sala_mantenimiento, cardiologia, habitacion, sala_operaciones};
 class cMantenimiento;
 class cFecha; 
 
@@ -18,13 +19,15 @@ class cEquipo
 	string Codigo;
 	string Descripcion;
 	estado Estado;
-	string LugarAct;   //podriamos hacer un enum de posibles lugares para que no sea tan insoportable
-	string LugarGuarda;
+	
 	int CostoMantenimiento;
 	bool NecesitaCorrectivo;  //por defecto en false
 	cFecha** FechasMant;
+protected:
+	lugar LugarAct;   //podriamos hacer un enum de posibles lugares para que no sea tan insoportable
+	lugar LugarGuarda;  
 public:
-	cEquipo();
+	cEquipo(int altura, int peso, string codigo, string descripcion, estado estado,	int costoMantenimiento, cFecha** fechaMant, lugar lugarAct, lugar lugarGuarda);
 	virtual ~cEquipo();
 	void virtual RealizarMantPreventivo();
 	void ChequearLugar();

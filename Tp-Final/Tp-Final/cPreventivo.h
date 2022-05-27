@@ -5,10 +5,10 @@
 using namespace std;
 
 class cPreventivo :
-    private cMantenimiento
+    public cMantenimiento
 {
 public:
-    cPreventivo();
+    cPreventivo(int costo);
     ~cPreventivo();
     void ControlarAlarmaPresion();
     void ControlarAlarmaFlujo();
