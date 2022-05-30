@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <string.h>
+#include "Template.h"
 
 
 using namespace std;
@@ -11,6 +12,7 @@ class cMantenimiento;
 class cFecha; 
 
 //hacer lista template con fecha
+typedef cLista<cFecha>cListaFechas;
 
 class cEquipo
 {
@@ -18,16 +20,17 @@ class cEquipo
 	int Peso;
 	string Codigo;
 	string Descripcion;
-	estado Estado;
-	
-	int CostoMantenimiento;
+	estado Estado;          //por defecto en_uso
+	int CostoMantenimiento;   
 	bool NecesitaCorrectivo;  //por defecto en false
-	cFecha** FechasMant;
+	cListaFechas* FechasMant;
+	cPreventivo* Preventivo;
+	cCorrectivo* Correctivo;
 protected:
-	lugar LugarAct;   //podriamos hacer un enum de posibles lugares para que no sea tan insoportable
+	lugar LugarAct;   //por defecto en almacenamiento
 	lugar LugarGuarda;  
 public:
-	cEquipo(int altura, int peso, string codigo, string descripcion, estado estado,	int costoMantenimiento, cFecha** fechaMant, lugar lugarAct, lugar lugarGuarda);
+	cEquipo(int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
 	virtual ~cEquipo();
 	void virtual RealizarMantPreventivo();
 	void ChequearLugar();

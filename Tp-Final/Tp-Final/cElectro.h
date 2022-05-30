@@ -10,7 +10,7 @@ class cElectro :
     //derivacione Derivaciones;
     //modos Traficacion;
 public:
-    cElectro(int altura, int peso, string codigo, string descripcion, estado estado, int costoMantenimiento, cFecha** fechaMant, lugar lugarAct, lugar lugarGuarda);
+    cElectro(cPreventivo* preventivo, cCorrectivo* correctivo, int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
     ~cElectro();
     void RealizarMantPreventivo();
     void RealizarVisualizacion();
