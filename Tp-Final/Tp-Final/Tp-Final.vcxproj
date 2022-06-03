@@ -160,7 +160,7 @@
     <ClInclude Include="cMesa.h" />
     <ClInclude Include="cPreventivo.h" />
     <ClInclude Include="cRespirador.h" />
-    <ClInclude Include="Template.h" />
+    <ClInclude Include="cLista.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -22,7 +22,6 @@ public:
 	void operator-(T* item);
 	T* operator[](int indice);
 	friend ostream& operator<< <>(ostream&, const cLista<T>&);
-
 };
 
 template<class T>

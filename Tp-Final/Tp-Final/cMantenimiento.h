@@ -9,6 +9,6 @@ class cMantenimiento
 public:
 	cMantenimiento(int costo);
 	virtual ~cMantenimiento();
-	void virtual RealizarMantenimiento();
+	void virtual RealizarMantenimiento() = 0;
 };
 

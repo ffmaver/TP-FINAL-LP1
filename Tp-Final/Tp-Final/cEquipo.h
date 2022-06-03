@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <string.h>
-#include "Template.h"
+#include "cLista.h"
 
 
 using namespace std;
@@ -26,15 +26,17 @@ class cEquipo
 	cListaFechas* FechasMant;
 	cPreventivo* Preventivo;
 	cCorrectivo* Correctivo;
+
 protected:
 	lugar LugarAct;   //por defecto en almacenamiento
 	lugar LugarGuarda;  
+
 public:
 	cEquipo(int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
 	virtual ~cEquipo();
 	void virtual RealizarMantPreventivo();
 	void ChequearLugar();
 	void RealizarMantCorrectivo();
-	void setNecesitaCorrectivo(bool);
+	void setNecesitaCorrectivo(bool patito);
 };
 

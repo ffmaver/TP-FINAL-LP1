@@ -74,7 +74,7 @@
     <ClInclude Include="cCorrectivo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Template.h">
+    <ClInclude Include="cLista.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

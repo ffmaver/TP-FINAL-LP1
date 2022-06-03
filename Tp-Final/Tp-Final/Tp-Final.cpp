@@ -11,39 +11,32 @@
 
 using namespace std;
 
+cFecha** InicializarFechas();
+
 int main()
 {
 	cFavaloro* Favaloro = new cFavaloro(23456789);
+	
+	cFecha** ListaFechas = new cFecha * [12];
 
-	cFecha* Dia1 = new cFecha(1, 1, 2022);
-	cFecha* Dia2 = new cFecha(12, 2, 2022);
-	cFecha* Dia3 = new cFecha(9, 3, 2022);
-	cFecha* Dia4 = new cFecha(3, 4, 2022);
-	cFecha* Dia5 = new cFecha(12, 5, 2022);
-	cFecha* Dia6 = new cFecha(2, 6, 2022);
-	cFecha* Dia7 = new cFecha(24, 7, 2022);
-	cFecha* Dia8 = new cFecha(9, 8, 2022);
-	cFecha* Dia9 = new cFecha(3, 9, 2022);
-	cFecha* Dia10 = new cFecha(12, 10, 2022);
-	cFecha* Dia11 = new cFecha(2, 11, 2022);
-	cFecha* Dia12 = new cFecha(24, 12, 2022);
+	ListaFechas = InicializarFechas();
 
 	cListaFechas* Calendario1 = new cListaFechas(MAX_FECHAS);
 	cListaFechas* Calendario2 = new cListaFechas(MAX_FECHAS);
 	cListaFechas* Calendario3 = new cListaFechas(MAX_FECHAS);
 
-	Calendario1->Agregar(Dia1);     //usamos un calendario para cada tipo de equipo
-	Calendario1->Agregar(Dia6);		//calendario 1 para las mesas de anestesia
-	Calendario1->Agregar(Dia12);
+	Calendario1->Agregar(ListaFechas[0]);       //usamos un calendario para cada tipo de equipo
+	Calendario1->Agregar(ListaFechas[5]);		//calendario 1 para las mesas de anestesia
+	Calendario1->Agregar(ListaFechas[11]);
 
-	Calendario2->Agregar(Dia2);		//para los electro
-	Calendario2->Agregar(Dia4);
-	Calendario2->Agregar(Dia6);
-	Calendario2->Agregar(Dia8);
+	Calendario2->Agregar(ListaFechas[1]);		//para los electro
+	Calendario2->Agregar(ListaFechas[3]);
+	Calendario2->Agregar(ListaFechas[5]);
+	Calendario2->Agregar(ListaFechas[7]);
 
-	Calendario3->Agregar(Dia3);		//para los respiradores
-	Calendario3->Agregar(Dia6);
-	Calendario3->Agregar(Dia9);
+	Calendario3->Agregar(ListaFechas[2]);		//para los respiradores
+	Calendario3->Agregar(ListaFechas[5]);
+	Calendario3->Agregar(ListaFechas[8]);
 
 	cPreventivo* MantPrevElectro = new cPreventivo(100);
 	cPreventivo* MantPrevMesas = new cPreventivo(90);
@@ -52,8 +45,6 @@ int main()
 	cCorrectivo* MantCorrectElectro = new cCorrectivo(800);
 	cCorrectivo* MantCorrectMesas = new cCorrectivo(1000);
 	cCorrectivo* MantCorrectRespirador = new cCorrectivo(1200);
-
-
 
 
 	cRespirador* respirador1 = new cRespirador(MantPrevRespiradores, MantCorrectRespirador, 20, 34, "Respirator2000", "es un respirador flaco", Calendario3, habitacion);
@@ -98,7 +89,10 @@ int main()
 		cout << string(e.what());
 	}
 
-
+	while (true)
+	{
+		// Simulando todo un mes, o 2 meses
+	}
 
 	Favaloro->DondeEstanLosEquipos();  //imprime donde esta cada equipo y senala cual esta fuera de lugar
 	Favaloro->RealizarMantCorrectivo();
@@ -142,4 +136,24 @@ int main()
 
 	delete Favaloro;
 
+}
+
+cFecha** InicializarFechas()
+{
+	cFecha** ListaAux = new cFecha*[12];
+
+	ListaAux[0] = new cFecha(1, 1, 2022);
+	ListaAux[1] = new cFecha(12, 2, 2022);
+	ListaAux[2] = new cFecha(9, 3, 2022);
+	ListaAux[3]= new cFecha(3, 4, 2022);
+	ListaAux[4]= new cFecha(12, 5, 2022);
+	ListaAux[5]= new cFecha(2, 6, 2022);
+	ListaAux[6]= new cFecha(24, 7, 2022);
+	ListaAux[7]= new cFecha(9, 8, 2022);
+	ListaAux[8]= new cFecha(3, 9, 2022);
+	ListaAux[9] = new cFecha(12, 10, 2022);
+	ListaAux[10] = new cFecha(2, 11, 2022);
+	ListaAux[11] = new cFecha(24, 12, 2022);
+
+	return ListaAux;
 }
