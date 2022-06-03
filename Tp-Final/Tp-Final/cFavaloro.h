@@ -2,6 +2,7 @@
 #include <iostream>
 #include "cLista.h"
 #include "cEquipo.h"
+#define MAXEQUIPOS 40
 
 using namespace std;
 
@@ -10,9 +11,9 @@ typedef cLista<cEquipo> cListaEquipo;
 class cFavaloro
 {
 	int CuentaCorriente;
-	cListaEquipo* cListaEquipos; // Equipos en uso
-	cListaEquipo* cListaPreventivo; // Equipos en mantenimiento preventivo
-	cListaEquipo* cListaCorrectivo; // Equipos en mantenimiento correctivo
+	cListaEquipo* ListaEquipos; // Equipos en uso
+	cListaEquipo* ListaPreventivo; // Equipos en mantenimiento preventivo
+	cListaEquipo* ListaCorrectivo; // Equipos en mantenimiento correctivo
 
 public:
 	cFavaloro(int cuenta);

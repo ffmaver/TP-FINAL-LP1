@@ -7,7 +7,7 @@ enum presion{baja, alta, sano};
 class cRespirador :
     public cEquipo
 {
-    int FlujoConfigSalida; // const
+    const int FlujoConfigSalida; // const
     presion AlarmaPresion;    //al crear el objeto, va a estar en sano
     bool AlarmaFlujoCero;     //al crearlo estara en false
     int FlujoSalida;        //al crear va a estar en 0

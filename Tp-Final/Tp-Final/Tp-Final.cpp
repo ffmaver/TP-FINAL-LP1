@@ -47,16 +47,16 @@ int main()
 	cCorrectivo* MantCorrectRespirador = new cCorrectivo(1200);
 
 
-	cRespirador* respirador1 = new cRespirador(MantPrevRespiradores, MantCorrectRespirador, 20, 34, "Respirator2000", "es un respirador flaco", Calendario3, habitacion);
-	cRespirador* respirador2 = new cRespirador(MantPrevRespiradores, MantCorrectRespirador, 20, 34, "Respirator2001", "es un respirador flaco", Calendario3, habitacion);
-	cRespirador* respirador3 = new cRespirador(MantPrevRespiradores, MantCorrectRespirador, 20, 34, "Respirator2002", "es un respirador flaco", Calendario3, habitacion);
+	cRespirador* respirador1 = new cRespirador( 20, 34, "Respirator2000", "es un respirador flaco", Calendario3, habitacion);
+	cRespirador* respirador2 = new cRespirador( 20, 34, "Respirator2001", "es un respirador flaco", Calendario3, habitacion);
+	cRespirador* respirador3 = new cRespirador( 20, 34, "Respirator2002", "es un respirador flaco", Calendario3, habitacion);
 
-	cElectro* electro1 = new cElectro(MantPrevElectro, MantCorrectElectro, 40, 50, "electro1", "es un electro flaco", Calendario3, cardiologia);
-	cElectro* electro2 = new cElectro(MantPrevElectro, MantCorrectElectro, 40, 50, "electro2", "es un electro flaco", Calendario3, cardiologia);
-	cElectro* electro3 = new cElectro(MantPrevElectro, MantCorrectElectro, 40, 50, "electro3", "es un electro flaco", Calendario3, cardiologia);
+	cElectro* electro1 = new cElectro( 40, 50, "electro1", "es un electro flaco", Calendario3, cardiologia);
+	cElectro* electro2 = new cElectro( 40, 50, "electro2", "es un electro flaco", Calendario3, cardiologia);
+	cElectro* electro3 = new cElectro( 40, 50, "electro3", "es un electro flaco", Calendario3, cardiologia);
 
-	cMesa* Mesa1 = new cMesa(MantPrevRespiradores, MantCorrectRespirador, 30, 76, "Mesa1", "es una mesa flaco", Calendario3, sala_operaciones);
-	cMesa* Mesa2 = new cMesa(MantPrevRespiradores, MantCorrectRespirador, 30, 76, "Mesa2", "es una mesa flaco", Calendario3, sala_operaciones);
+	cMesa* Mesa1 = new cMesa( 30, 76, "Mesa1", "es una mesa flaco", Calendario3, sala_operaciones);
+	cMesa* Mesa2 = new cMesa( 30, 76, "Mesa2", "es una mesa flaco", Calendario3, sala_operaciones);
 
 
 	/*
@@ -121,18 +121,11 @@ int main()
 	delete Calendario2;
 	delete Calendario1;
 
-	delete Dia12;
-	delete Dia11;
-	delete Dia10;
-	delete Dia9;
-	delete Dia8;
-	delete Dia7;
-	delete Dia6;
-	delete Dia5;
-	delete Dia4;
-	delete Dia3;
-	delete Dia2;
-	delete Dia1;
+	for (int i = 0; i < 12; i++)
+		delete ListaFechas[i];
+
+	delete[] ListaFechas;
+
 
 	delete Favaloro;
 

@@ -14,7 +14,7 @@ public:
     // Tendrian que setear el precio del Mantenimiento. Hacer lo mismo para Preventivo
     cCorrectivo(int costo);
     ~cCorrectivo();
-    void RealizarMantenimiento(int plata);
+    void RealizarMantenimiento(cEquipo* equipo);
 
 };
 

@@ -10,12 +10,17 @@ enum estado{en_uso, en_espera, fuera_de_servicio, en_mantenimiento};
 enum lugar{almacenamiento, sala_mantenimiento, cardiologia, habitacion, sala_operaciones};
 class cMantenimiento;
 class cFecha; 
+class cPreventivo;
+class cCorrectivo;
+
+
 
 //hacer lista template con fecha
 typedef cLista<cFecha>cListaFechas;
 
 class cEquipo
 {
+	static int CantEquipos; //por defecto, empieza en cero y cada vez que creamos uno, suma uno
 	int Altura;
 	int Peso;
 	string Codigo;

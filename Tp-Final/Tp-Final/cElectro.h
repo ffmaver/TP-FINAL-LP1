@@ -9,10 +9,10 @@ class cElectro :
     public cEquipo
 {
     bool Enchufado;  //por defecto false
-    //derivacione Derivaciones;
-    //modos Traficacion;
+    bool Derivaciones;
+    bool Traficacion;
 public:
-    cElectro(cPreventivo* preventivo, cCorrectivo* correctivo, int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
+    cElectro( int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
     ~cElectro();
     void RealizarMantPreventivo();
     void RealizarVisualizacion();
