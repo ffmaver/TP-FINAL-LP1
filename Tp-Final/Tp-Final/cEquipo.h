@@ -26,22 +26,22 @@ class cEquipo
 	string Codigo;
 	string Descripcion;
 	estado Estado;          //por defecto en_uso
-	int CostoMantenimiento;   
+	//int CostoMantenimiento;   
 	bool NecesitaCorrectivo;  //por defecto en false
 	cListaFechas* FechasMant;
 	cPreventivo* Preventivo;
-	cCorrectivo* Correctivo;
+	cCorrectivo* Correctivo;  //podemos ver que el costo varie segun que tan hecho percha esta el equipo
 
 protected:
 	lugar LugarAct;   //por defecto en almacenamiento
 	lugar LugarGuarda;  
 
 public:
-	cEquipo(int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
+	cEquipo(int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda, int costoP, int costoC);
 	virtual ~cEquipo();
 	void virtual RealizarMantPreventivo();
 	void ChequearLugar();
 	void RealizarMantCorrectivo();
-	void setNecesitaCorrectivo(bool patito);
+	void setNecesitaCorrectivo(bool a);
 };
 

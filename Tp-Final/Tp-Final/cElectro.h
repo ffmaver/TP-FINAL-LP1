@@ -8,13 +8,14 @@ using namespace std;
 class cElectro :
     public cEquipo
 {
+    friend class cPreventivo;
     bool Enchufado;  //por defecto false
     bool Derivaciones;
     bool Traficacion;
 public:
     cElectro( int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
     ~cElectro();
-    void RealizarMantPreventivo();
+  //  void RealizarMantPreventivo();
     void RealizarVisualizacion();
 };
 
