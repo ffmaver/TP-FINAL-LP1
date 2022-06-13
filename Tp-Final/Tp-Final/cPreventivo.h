@@ -17,5 +17,7 @@ public:
     void ControlVolumen();
     void ControlAlarma();
     void RealizarMantenimiento(cEquipo* equipo);
+    friend ostream& operator<<(ostream& out, cPreventivo& prev);
+
 };
 

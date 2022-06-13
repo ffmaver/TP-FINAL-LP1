@@ -7,3 +7,10 @@ cElectro::cElectro(int altura, int peso, string codigo, string descripcion, cLis
 	this->Traficacion = false;
 
 }
+
+istream& operator>>(istream& in, cElectro& electro)
+{
+	cEquipo* aux = dynamic_cast<cEquipo*>(&electro);
+	in >> *aux;
+	return in;
+}

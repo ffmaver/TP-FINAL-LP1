@@ -16,7 +16,7 @@ public:
 	~cFecha();
 
 	void SetHoy();//Cambia la fecha a la fecha actual
-	void FechaCompleta();//Verifica que la fecha esté completa //era bool en el tp3
+	bool FechaCompleta();//Verifica que la fecha esté completa //era bool en el tp3
 	void SiguienteDia();
 
 };

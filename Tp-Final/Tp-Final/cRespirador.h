@@ -21,5 +21,7 @@ public:
    // void RealizarMantPreventivo();  //llama a Realizar mantenimiento preventivo desde el atributo (no nos queda claro la parte del flujo)
     int Funcionar(int flujo);  //va a chequear el flujo y la presion del paciente y dar una alarma si corresponde      el mant prev va a llamar a esta funcion y despues ver que las alarmas "suenen" cuando corresponde
     void setPresionPaciente(presion presionPaciente);
+    friend istream& operator>>(istream& in, cRespirador& respirador);
+
 };
 

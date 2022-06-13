@@ -27,6 +27,40 @@ cEquipo::~cEquipo()
 	delete this->Preventivo;
 }
 
+void cEquipo::RealizarMantPreventivo()
+{
+	this->Preventivo->RealizarMantenimiento(this);
+}
+
+void cEquipo::ChequearLugar()
+{
+	if (this->LugarGuarda != this->LugarAct)
+		throw new exception("El equipo no se encuentra en su lugar");
+
+}
+
+void cEquipo::ImprimirLugarAct()
+{
+	cout << "El equipo esta ";
+	switch (LugarAct) {
+	case almacenamiento:
+		cout << "en el almacenamiento" << endl;
+		break;
+	case sala_mantenimiento:
+		cout << "en la sala de mantenimiento" << endl;
+		break;
+	case cardiologia:
+		cout << " en cardiologia" << endl;
+		break;
+	case habitacion:
+		cout << "en una habitacion" << endl;
+		break;
+	case sala_operaciones:
+		cout << "en la sala de operaciones" << endl;
+		break;
+	}
+}
+
 void cEquipo::RealizarMantCorrectivo()
 {
 	this->Correctivo->RealizarMantenimiento(this);
@@ -38,3 +72,12 @@ void cEquipo::setNecesitaCorrectivo(bool a)
 }
 
 int cEquipo::CantEquipos = 0;
+
+istream& operator>>(istream& in, cEquipo& eq)
+{
+	string aux;
+	in >> aux;
+	eq.Descripcion = aux;  //setea una nueva descripcion ingresada en el cin
+	return in;
+	// TODO: insert return statement here
+}

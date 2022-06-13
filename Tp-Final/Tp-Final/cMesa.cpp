@@ -10,3 +10,10 @@ cMesa::cMesa(int altura, int peso, string codigo, string descripcion, cListaFech
 cMesa::~cMesa()
 {
 }
+
+istream& operator>>(istream& in, cMesa& mesa)
+{
+	cEquipo* aux = dynamic_cast<cEquipo*>(&mesa);
+	in >> *aux;
+	return in;
+}

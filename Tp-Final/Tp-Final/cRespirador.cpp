@@ -17,3 +17,10 @@ void cRespirador::setPresionPaciente(presion presionPaciente)
 {
 	this->PresionPaciente = presionPaciente;
 }
+
+istream& operator>>(istream& in, cRespirador& respirador)
+{
+	cEquipo* aux = dynamic_cast<cEquipo*>(&respirador);
+	in >> *aux;
+	return in;
+}

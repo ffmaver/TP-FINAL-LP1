@@ -17,5 +17,6 @@ public:
     ~cElectro();
   //  void RealizarMantPreventivo();
     void RealizarVisualizacion();
+    friend istream& operator>>(istream& in, cElectro& electro);
 };
 

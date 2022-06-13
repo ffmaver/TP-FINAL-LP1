@@ -25,7 +25,9 @@ public:
 	/// </summary>
 	void ElegirEquipo();
 
-
+	/// <summary>
+	/// Verifica la ubicacion de cada equipo, imprime en pantalla los que no estan en su lugar
+	/// </summary>
 	void DondeEstanLosEquipos();
 	
 	void ImprimirMantenimientos();

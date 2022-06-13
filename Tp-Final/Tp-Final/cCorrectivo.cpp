@@ -1,8 +1,5 @@
 #include "cCorrectivo.h"
 
-void cCorrectivo::RealizarMantenimiento(int plata)
-{
-}
 
 ostream& operator<<(ostream& out, cCorrectivo& correct)
 {
@@ -10,4 +7,12 @@ ostream& operator<<(ostream& out, cCorrectivo& correct)
     cMantenimiento* aux = dynamic_cast<cMantenimiento*>(&correct);
     out << *aux;
     return out;
+}
+
+cCorrectivo::cCorrectivo(int costo):cMantenimiento(costo)
+{
+}
+
+cCorrectivo::~cCorrectivo()
+{
 }

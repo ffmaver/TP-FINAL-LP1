@@ -39,9 +39,12 @@ protected:
 public:
 	cEquipo(int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda, int costoP, int costoC);
 	virtual ~cEquipo();
-	void virtual RealizarMantPreventivo();
+	void RealizarMantPreventivo();
 	void ChequearLugar();
+	void ImprimirLugarAct();
 	void RealizarMantCorrectivo();
 	void setNecesitaCorrectivo(bool a);
+	friend istream& operator>>(istream& in, cEquipo& eq);
+	string getCodigo();
 };
 
