@@ -20,6 +20,7 @@ typedef cLista<cFecha>cListaFechas;
 
 class cEquipo
 {
+	friend class cFavaloro;
 	static int CantEquipos; //por defecto, empieza en cero y cada vez que creamos uno, suma uno
 	int Altura;
 	int Peso;
@@ -44,6 +45,7 @@ public:
 	void ImprimirLugarAct();
 	void RealizarMantCorrectivo();
 	void setNecesitaCorrectivo(bool a);
+	friend ostream& operator<<(ostream& out, cEquipo& equipo);
 	friend istream& operator>>(istream& in, cEquipo& eq);
 	string getCodigo();
 };

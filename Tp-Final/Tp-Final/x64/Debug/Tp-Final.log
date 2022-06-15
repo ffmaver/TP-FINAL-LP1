@@ -1,0 +1,17 @@
+﻿  cCorrectivo.cpp
+  cElectro.cpp
+  cEquipo.cpp
+  cFavaloro.cpp
+  cFecha.cpp
+  cMantenimiento.cpp
+  cMesa.cpp
+  cPreventivo.cpp
+  cRespirador.cpp
+  Tp-Final.cpp
+  Generating Code...
+cCorrectivo.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl cCorrectivo::RealizarMantenimiento(class cEquipo *)" (?RealizarMantenimiento@cCorrectivo@@UEAAXPEAVcEquipo@@@Z)
+cElectro.obj : error LNK2019: unresolved external symbol "public: virtual __cdecl cElectro::~cElectro(void)" (??1cElectro@@UEAA@XZ) referenced in function "public: virtual void * __cdecl cElectro::`scalar deleting destructor'(unsigned int)" (??_GcElectro@@UEAAPEAXI@Z)
+cFavaloro.obj : error LNK2019: unresolved external symbol "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl cEquipo::getCodigo(void)" (?getCodigo@cEquipo@@QEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ) referenced in function __catch$?DondeEstanLosEquipos@cFavaloro@@QEAAXXZ$0
+cFavaloro.obj : error LNK2019: unresolved external symbol "public: int __cdecl cMantenimiento::getCosto(void)" (?getCosto@cMantenimiento@@QEAAHXZ) referenced in function "public: void __cdecl cFavaloro::ImprimirMantenimientos(void)" (?ImprimirMantenimientos@cFavaloro@@QEAAXXZ)
+Tp-Final.obj : error LNK2019: unresolved external symbol "public: void __cdecl cFavaloro::RealizarMantCorrectivo(void)" (?RealizarMantCorrectivo@cFavaloro@@QEAAXXZ) referenced in function main
+C:\Users\sol\Desktop\Favaloro\Segundo\Labo\TP_FINAL\Tp-Final\x64\Debug\Tp-Final.exe : fatal error LNK1120: 5 unresolved externals

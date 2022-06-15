@@ -17,6 +17,7 @@ public:
     cMesa(int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
     ~cMesa();
     //void RealizarMantPreventivo();
+    friend ostream& operator<<(ostream& out, cMesa& mesa);
     friend istream& operator>>(istream& in, cMesa& mesa);
 };
 

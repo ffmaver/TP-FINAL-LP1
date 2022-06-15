@@ -14,5 +14,6 @@ public:
 	virtual ~cMantenimiento();
 	void virtual RealizarMantenimiento(cEquipo* equipo) = 0;
 	friend ostream& operator<<(ostream& out, cMantenimiento& mant);
+	int getCosto();
 };
 

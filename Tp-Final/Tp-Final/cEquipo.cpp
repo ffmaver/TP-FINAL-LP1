@@ -73,6 +73,13 @@ void cEquipo::setNecesitaCorrectivo(bool a)
 
 int cEquipo::CantEquipos = 0;
 
+ostream& operator<<(ostream& out, cEquipo& equipo)
+{
+	out << "Equipo: " << equipo.Codigo << endl;
+	return out;
+	// TODO: insert return statement here
+}
+
 istream& operator>>(istream& in, cEquipo& eq)
 {
 	string aux;
