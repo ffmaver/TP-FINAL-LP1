@@ -9,6 +9,11 @@ cMantenimiento::~cMantenimiento()
 {
 }
 
+int cMantenimiento::getCosto()
+{
+	return this->Costo;
+}
+
 ostream& operator<<(ostream& out, cMantenimiento& mant)
 {
 	out << "Costo del mantenimiento: " << to_string(mant.Costo) << endl;

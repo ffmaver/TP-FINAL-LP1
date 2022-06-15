@@ -15,6 +15,8 @@ cFecha** InicializarFechas();
 
 int main()
 {
+	cFecha* Hoy = new cFecha(27, 1, 2022); //Vamos a simular todo partiendo por el 27 de enero y terminando el 3 de febrero (para mostrar el paso de dias y meses)
+
 	cFavaloro* Favaloro = new cFavaloro(23456789);
 	
 	cFecha** ListaFechas = new cFecha * [12];
@@ -58,6 +60,16 @@ int main()
 	cMesa* Mesa1 = new cMesa( 30, 76, "Mesa1", "es una mesa flaco", Calendario3, sala_operaciones);
 	cMesa* Mesa2 = new cMesa( 30, 76, "Mesa2", "es una mesa flaco", Calendario3, sala_operaciones);
 
+	*Favaloro + respirador1;
+	*Favaloro + respirador2;
+	*Favaloro + respirador3;
+	*Favaloro + electro1;
+	*Favaloro + electro2;
+	*Favaloro + electro3;
+	*Favaloro + Mesa1;
+	*Favaloro + Mesa2;
+
+
 
 	/*
 	NUESTRA IDEA: en RealizarMantPreventivo se chequea que la fecha actual corresponda con alguna de las fechas del calendario,
@@ -70,32 +82,43 @@ int main()
 
 	*/
 
-	try {
-		respirador1->RealizarMantPreventivo();
-	}
-	catch (exception e) {
-		cout << string(e.what());
-	}
-	try {
-		respirador2->RealizarMantPreventivo();
-	}
-	catch (exception e) {
-		cout << string(e.what());
-	}
-	try {
-		respirador3->RealizarMantPreventivo();
-	}
-	catch (exception e) {
-		cout << string(e.what());
-	}
+	//*try {
+	//	respirador1->RealizarMantPreventivo();
+	//}
+	//catch (exception e) {
+	//	cout << string(e.what());
+	//}
+	//try {
+	//	respirador2->RealizarMantPreventivo();
+	//}
+	//catch (exception e) {
+	//	cout << string(e.what());
+	//}
+	//try {
+	//	respirador3->RealizarMantPreventivo();
+	//}
+	//catch (exception e) {
+	//	cout << string(e.what());
+	//}
 
 	while (true)
 	{
-		// Simulando todo un mes, o 2 meses
+		Favaloro->LlenarListasMantenimientos(Hoy);   //llena las listas con los equipos correspondientes y realiza los mantenimientos prev de hoy
+
+		Favaloro->ImprimirMantenimientos();  //Muestra la lista de mantenimientos prev realizados y los correct pendientes (si corresponde realiza los correctivos)
+		Favaloro->DondeEstanLosEquipos();    //Al final del dia revisa que los equipos esten en su lugar (si estan mal, informa)
+
+		if (Hoy->FinaldeMes())
+			Favaloro->ElegirEquipo();   //Al final de cada mes se elige un equipo random para verificar
+	
+		Hoy->SiguienteDia();   //seteamos la fecha de hoy al dia siguiente (REVISAR QUE ANDE BIENNNNNNNNNNNNNNNNNNNN)
+
+		if (Hoy->getMes() == 2 && Hoy->getDia() == 3)   //el while termina cuando la fecha es 2/3/2022
+			break;
+	
 	}
 
-	Favaloro->DondeEstanLosEquipos();  //imprime donde esta cada equipo y senala cual esta fuera de lugar
-	Favaloro->RealizarMantCorrectivo();
+	
 
 
 	delete Mesa2;
@@ -135,18 +158,18 @@ cFecha** InicializarFechas()
 {
 	cFecha** ListaAux = new cFecha*[12];
 
-	ListaAux[0] = new cFecha(1, 1, 2022);
-	ListaAux[1] = new cFecha(12, 2, 2022);
-	ListaAux[2] = new cFecha(9, 3, 2022);
-	ListaAux[3]= new cFecha(3, 4, 2022);
-	ListaAux[4]= new cFecha(12, 5, 2022);
-	ListaAux[5]= new cFecha(2, 6, 2022);
-	ListaAux[6]= new cFecha(24, 7, 2022);
-	ListaAux[7]= new cFecha(9, 8, 2022);
-	ListaAux[8]= new cFecha(3, 9, 2022);
-	ListaAux[9] = new cFecha(12, 10, 2022);
-	ListaAux[10] = new cFecha(2, 11, 2022);
-	ListaAux[11] = new cFecha(24, 12, 2022);
+	ListaAux[0] = new cFecha(27, 1, 2022);
+	ListaAux[1] = new cFecha(28, 1, 2022);
+	ListaAux[2] = new cFecha(29, 1, 2022);
+	ListaAux[3]= new cFecha(30, 1, 2022);
+	ListaAux[4]= new cFecha(31, 1, 2022);
+	ListaAux[5]= new cFecha(1, 2, 2022);
+	ListaAux[6]= new cFecha(2, 2, 2022);
+	ListaAux[7]= new cFecha(3, 2, 2022);
+	ListaAux[8]= new cFecha(4, 2, 2022);
+	ListaAux[9] = new cFecha(5, 2, 2022);
+	ListaAux[10] = new cFecha(6, 2, 2022);
+	ListaAux[11] = new cFecha(7, 2, 2022);
 
 	return ListaAux;
 }
