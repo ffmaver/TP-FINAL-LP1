@@ -103,7 +103,12 @@ bool cFecha::FechaCompleta()
 
 void cFecha::SiguienteDia() //REVISARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
 {
-	this->fecha.tm_mday += 1; //revisar que el cambio de mes funcione
+	if (this->FinaldeMes()) {
+		this->fecha.tm_mday = 1;
+		this->fecha.tm_mon += 1;
+	}
+	else
+		this->fecha.tm_mday += 1; //revisar que el cambio de mes funcione
 }
 
 bool cFecha::FinaldeMes()
