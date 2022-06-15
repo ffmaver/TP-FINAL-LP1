@@ -106,6 +106,21 @@ void cFecha::SiguienteDia() //REVISARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
 	this->fecha.tm_mday += 1; //revisar que el cambio de mes funcione
 }
 
+bool cFecha::FinaldeMes()
+{
+	if ((this->fecha.tm_mon == 1 || this->fecha.tm_mon == 3 || this->fecha.tm_mon == 5 || this->fecha.tm_mon == 7 ||
+		this->fecha.tm_mon == 8 || this->fecha.tm_mon == 10 || this->fecha.tm_mon == 12) && this->fecha.tm_mday == 31)
+		return true;
+
+	else if ((this->fecha.tm_mon == 4 || this->fecha.tm_mon == 6 || this->fecha.tm_mon == 9 || this->fecha.tm_mon == 11) && this->fecha.tm_mday == 30)
+		return true;
+
+	else if (this->fecha.tm_mon == 2 && this->fecha.tm_mday == 28)
+		return true;
+	else
+		return false;
+}
+
 //string cFecha::To_string()
 //{
 //	return to_string(fecha.tm_year + 1900) +
