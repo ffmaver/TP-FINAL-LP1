@@ -101,7 +101,7 @@ bool cFecha::FechaCompleta()
 	return false;
 }
 
-void cFecha::SiguienteDia() //REVISARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+void cFecha::SiguienteDia() 
 {
 	if (this->FinaldeMes()) {
 		this->fecha.tm_mday = 1;

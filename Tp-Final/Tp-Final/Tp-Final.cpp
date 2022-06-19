@@ -27,18 +27,18 @@ int main()
 	cListaFechas* Calendario2 = new cListaFechas(MAX_FECHAS);
 	cListaFechas* Calendario3 = new cListaFechas(MAX_FECHAS);
 
-	Calendario1->Agregar(ListaFechas[0]);       //usamos un calendario para cada tipo de equipo
-	Calendario1->Agregar(ListaFechas[5]);		//calendario 1 para las mesas de anestesia
-	Calendario1->Agregar(ListaFechas[11]);
+	*Calendario1+(ListaFechas[0]);       //usamos un calendario para cada tipo de equipo
+	*Calendario1+(ListaFechas[5]);		//calendario 1 para las mesas de anestesia
+	*Calendario1+(ListaFechas[11]); 
 
-	Calendario2->Agregar(ListaFechas[1]);		//para los electro
-	Calendario2->Agregar(ListaFechas[3]);
-	Calendario2->Agregar(ListaFechas[5]);
-	Calendario2->Agregar(ListaFechas[7]);
+	*Calendario2+(ListaFechas[1]);		//para los electro
+	*Calendario2+(ListaFechas[3]);
+	*Calendario2+(ListaFechas[5]);
+	*Calendario2+(ListaFechas[7]);
 
-	Calendario3->Agregar(ListaFechas[2]);		//para los respiradores
-	Calendario3->Agregar(ListaFechas[5]);
-	Calendario3->Agregar(ListaFechas[8]);
+	*Calendario3+(ListaFechas[2]);		//para los respiradores
+	*Calendario3+(ListaFechas[5]);
+	*Calendario3+(ListaFechas[8]);
 
 	cPreventivo* MantPrevElectro = new cPreventivo(100);
 	cPreventivo* MantPrevMesas = new cPreventivo(90);
