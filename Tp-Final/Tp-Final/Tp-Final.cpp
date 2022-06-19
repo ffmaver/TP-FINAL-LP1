@@ -49,16 +49,16 @@ int main()
 	cCorrectivo* MantCorrectRespirador = new cCorrectivo(1200);
 
 
-	cRespirador* respirador1 = new cRespirador( 20, 34, "Respirator2000", "es un respirador flaco", Calendario3, habitacion);
-	cRespirador* respirador2 = new cRespirador( 20, 34, "Respirator2001", "es un respirador flaco", Calendario3, habitacion);
-	cRespirador* respirador3 = new cRespirador( 20, 34, "Respirator2002", "es un respirador flaco", Calendario3, habitacion);
+	cRespirador* respirador1 = new cRespirador( 20, 34,0.7, "Respirator2000", "es un respirador flaco", Calendario3, habitacion);
+	cRespirador* respirador2 = new cRespirador( 20, 34,0, "Respirator2001", "es un respirador flaco", Calendario3, habitacion);
+	cRespirador* respirador3 = new cRespirador( 20, 34,0.5, "Respirator2002", "es un respirador flaco", Calendario3, habitacion);
 
-	cElectro* electro1 = new cElectro( 40, 50, "electro1", "es un electro flaco", Calendario3, cardiologia);
-	cElectro* electro2 = new cElectro( 40, 50, "electro2", "es un electro flaco", Calendario3, cardiologia);
-	cElectro* electro3 = new cElectro( 40, 50, "electro3", "es un electro flaco", Calendario3, cardiologia);
+	cElectro* electro1 = new cElectro( 40, 50, 0,"electro1", "es un electro flaco", Calendario3, cardiologia);
+	cElectro* electro2 = new cElectro( 40, 50, 0.9,"electro2", "es un electro flaco", Calendario3, cardiologia);
+	cElectro* electro3 = new cElectro( 40, 50, 0.8,"electro3", "es un electro flaco", Calendario3, cardiologia);
 
-	cMesa* Mesa1 = new cMesa( 30, 76, "Mesa1", "es una mesa flaco", Calendario3, sala_operaciones);
-	cMesa* Mesa2 = new cMesa( 30, 76, "Mesa2", "es una mesa flaco", Calendario3, sala_operaciones);
+	cMesa* Mesa1 = new cMesa( 30, 76, 0,"Mesa1", "es una mesa flaco", Calendario3, sala_operaciones);
+	cMesa* Mesa2 = new cMesa( 30, 76, 1,"Mesa2", "es una mesa flaco", Calendario3, sala_operaciones);
 
 	*Favaloro + respirador1;
 	*Favaloro + respirador2;

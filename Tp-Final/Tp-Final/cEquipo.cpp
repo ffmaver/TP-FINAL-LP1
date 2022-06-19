@@ -4,12 +4,13 @@
 
 
 
-cEquipo::cEquipo(int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda, int costoP, int costoC)
+cEquipo::cEquipo(int altura, int peso,float error, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda, int costoP, int costoC)
 {
 	/*Preventivo = new cPreventivo(this);
 	Correctivo = new cCorrectivo(this);*/
 	this->Altura = altura;
 	this->Peso = peso;
+	this->Error = error;
 	this->Codigo = codigo;
 	this->Descripcion = descripcion;
 	this->Estado = en_uso;

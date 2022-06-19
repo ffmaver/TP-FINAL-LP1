@@ -14,7 +14,7 @@ class cMesa :
     bool AlarmaSuenio;           //idem
 
 public:                         
-    cMesa(int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
+    cMesa(int altura, int peso, float error, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
     ~cMesa();
     //void RealizarMantPreventivo();
     friend ostream& operator<<(ostream& out, cMesa& mesa);

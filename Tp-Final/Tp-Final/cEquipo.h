@@ -24,6 +24,7 @@ class cEquipo
 	static int CantEquipos; //por defecto, empieza en cero y cada vez que creamos uno, suma uno
 	int Altura;
 	int Peso;
+	float Error;    //entre 0 y 1 dependiendo de cada cuanto falla
 	string Codigo;
 	string Descripcion;
 	estado Estado;          //por defecto en_uso
@@ -38,7 +39,7 @@ protected:
 	lugar LugarGuarda;  
 
 public:
-	cEquipo(int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda, int costoP, int costoC);
+	cEquipo(int altura, int peso, float error,string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda, int costoP, int costoC);
 	virtual ~cEquipo();
 	void RealizarMantPreventivo();
 	void ChequearLugar();
@@ -48,5 +49,7 @@ public:
 	friend ostream& operator<<(ostream& out, cEquipo& equipo);
 	friend istream& operator>>(istream& in, cEquipo& eq);
 	string getCodigo();
+	float getError();
+	void setError(float error);
 };
 

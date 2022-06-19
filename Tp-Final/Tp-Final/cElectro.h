@@ -13,7 +13,7 @@ class cElectro :
     bool Derivaciones;
     bool Traficacion;
 public:
-    cElectro( int altura, int peso, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
+    cElectro( int altura, int peso, float error, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
     ~cElectro();
   //  void RealizarMantPreventivo();
     void RealizarVisualizacion();
