@@ -19,6 +19,18 @@ cFavaloro::~cFavaloro()
 	delete ListaPreventivo;
 }
 
+void cFavaloro::ElegirEquipo()
+{
+	int a = rand() % (this->ListaEquipos->getCant());
+	try {
+		(*(this->ListaEquipos))[a]->ChequearLugar();
+	}
+	catch (exception *e) {
+		cout << "El equipo " << (*(this->ListaEquipos))[a]->Codigo << " no esta en su lugar" << endl;
+	}
+
+}
+
 void cFavaloro::LlenarListasMantenimientos(cFecha* hoy)
 {
 
@@ -46,9 +58,9 @@ void cFavaloro::DondeEstanLosEquipos()
 		try {
 			(*(this->ListaEquipos))[i]->ChequearLugar();
 		}
-		catch (exception e) {
+		catch (exception *e) {
 			cout << "El equipo " << (*(this->ListaEquipos))[i]->getCodigo() <<" no esta en su lugar"<< endl;
-			cout << e.what() << endl;
+			cout << e->what() << endl;
 		}
 	}
 }

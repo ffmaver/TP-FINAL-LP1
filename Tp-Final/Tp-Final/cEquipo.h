@@ -23,7 +23,7 @@ class cEquipo
 	friend class cFavaloro;
 	static int CantEquipos; //por defecto, empieza en cero y cada vez que creamos uno, suma uno
 	int Altura;
-	int Peso;
+	int Peso;			//podria ser float, pero es indistinto en este programa
 	float Error;    //entre 0 y 1 dependiendo de cada cuanto falla
 	string Codigo;
 	string Descripcion;
@@ -51,5 +51,7 @@ public:
 	string getCodigo();
 	float getError();
 	void setError(float error);
+
+
 };
 

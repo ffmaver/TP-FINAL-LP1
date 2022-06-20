@@ -53,12 +53,12 @@ int main()
 	cRespirador* respirador2 = new cRespirador( 20, 34,0, "Respirator2001", "es un respirador flaco", Calendario3, habitacion);
 	cRespirador* respirador3 = new cRespirador( 20, 34,0.5, "Respirator2002", "es un respirador flaco", Calendario3, habitacion);
 
-	cElectro* electro1 = new cElectro( 40, 50, 0,"electro1", "es un electro flaco", Calendario3, cardiologia);
-	cElectro* electro2 = new cElectro( 40, 50, 0.9,"electro2", "es un electro flaco", Calendario3, cardiologia);
-	cElectro* electro3 = new cElectro( 40, 50, 0.8,"electro3", "es un electro flaco", Calendario3, cardiologia);
+	cElectro* electro1 = new cElectro( 40, 50, 0,"electro1", "es un electro flaco", Calendario2, cardiologia);
+	cElectro* electro2 = new cElectro( 40, 50, 0.9,"electro2", "es un electro flaco", Calendario2, cardiologia);
+	cElectro* electro3 = new cElectro( 40, 50, 0.8,"electro3", "es un electro flaco", Calendario2, cardiologia);
 
-	cMesa* Mesa1 = new cMesa( 30, 76, 0,"Mesa1", "es una mesa flaco", Calendario3, sala_operaciones);
-	cMesa* Mesa2 = new cMesa( 30, 76, 1,"Mesa2", "es una mesa flaco", Calendario3, sala_operaciones);
+	cMesa* Mesa1 = new cMesa( 30, 76, 0,"Mesa1", "es una mesa flaco", Calendario1, sala_operaciones);
+	cMesa* Mesa2 = new cMesa( 30, 76, 1,"Mesa2", "es una mesa flaco", Calendario1, sala_operaciones);
 
 	*Favaloro + respirador1;
 	*Favaloro + respirador2;
@@ -70,37 +70,7 @@ int main()
 	*Favaloro + Mesa2;
 
 
-
-	/*
-	NUESTRA IDEA: en RealizarMantPreventivo se chequea que la fecha actual corresponda con alguna de las fechas del calendario,
-	si no coincide, lanza una excepcion que diga algo asi como "Hoy no se debe realizar el mant preventivo de este equipo"
-
-	Si coincide, se realiza el mantenimiento preventivo que corresponde y si este encuentra una falla, cambia el estado del equipo a
-	fuera de servicio
-
-	cuando favaloro haga los mant correctivos, todos los equipos que esten en estado fuera de servicio seran reparados
-
-	*/
-
-	//*try {
-	//	respirador1->RealizarMantPreventivo();
-	//}
-	//catch (exception e) {
-	//	cout << string(e.what());
-	//}
-	//try {
-	//	respirador2->RealizarMantPreventivo();
-	//}
-	//catch (exception e) {
-	//	cout << string(e.what());
-	//}
-	//try {
-	//	respirador3->RealizarMantPreventivo();
-	//}
-	//catch (exception e) {
-	//	cout << string(e.what());
-	//}
-
+	
 	while (true)
 	{
 		Favaloro->LlenarListasMantenimientos(Hoy);   //llena las listas con los equipos correspondientes y realiza los mantenimientos prev de hoy
@@ -119,7 +89,6 @@ int main()
 	}
 
 	
-
 
 	delete Mesa2;
 	delete Mesa1;

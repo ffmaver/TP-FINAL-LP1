@@ -111,6 +111,16 @@ void cFecha::SiguienteDia()
 		this->fecha.tm_mday += 1; //revisar que el cambio de mes funcione
 }
 
+int cFecha::getDia()
+{
+	return this->fecha.tm_mday;
+}
+
+int cFecha::getMes()
+{
+	return this->fecha.tm_mon;
+}
+
 bool cFecha::FinaldeMes()
 {
 	if ((this->fecha.tm_mon == 1 || this->fecha.tm_mon == 3 || this->fecha.tm_mon == 5 || this->fecha.tm_mon == 7 ||
@@ -124,6 +134,20 @@ bool cFecha::FinaldeMes()
 		return true;
 	else
 		return false;
+}
+
+bool cFecha::operator==(cFecha* fecha1)
+{
+	if (this->fecha.tm_year == fecha1->fecha.tm_year && this->fecha.tm_mon == fecha1->fecha.tm_mon && this->fecha.tm_mday == fecha1->fecha.tm_mday)
+		return true;
+	return false;
+}
+
+bool cFecha::operator!=(cFecha* fecha1)
+{
+	if (this->fecha.tm_year == fecha1->fecha.tm_year && this->fecha.tm_mon == fecha1->fecha.tm_mon && this->fecha.tm_mday == fecha1->fecha.tm_mday)
+		return false;
+	return true;
 }
 
 //string cFecha::To_string()

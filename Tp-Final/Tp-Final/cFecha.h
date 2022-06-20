@@ -23,5 +23,10 @@ public:
 	int getMes();
 
 	bool FinaldeMes();
+
+	bool operator ==(cFecha* fecha1);
+	bool operator !=(cFecha* fecha1);
+
+
 };
 

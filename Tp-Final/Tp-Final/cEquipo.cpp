@@ -1,7 +1,7 @@
 #include "cEquipo.h"
 #include "cCorrectivo.h"
 #include "cPreventivo.h"
-
+//#include "cLista.h"
 
 
 cEquipo::cEquipo(int altura, int peso,float error, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda, int costoP, int costoC)
@@ -15,7 +15,7 @@ cEquipo::cEquipo(int altura, int peso,float error, string codigo, string descrip
 	this->Descripcion = descripcion;
 	this->Estado = en_uso;
 	this->NecesitaCorrectivo = false;
-	this->FechasMant = FechasMant;   //podemos hacer que estas las haga el constructor de cada tipo de equipo asi quedan fijas
+	this->FechasMant = fechaMant;   //podemos hacer que estas las haga el constructor de cada tipo de equipo asi quedan fijas
 	this->LugarGuarda = lugarGuarda;
 	this->LugarAct = sala_mantenimiento;
 	Preventivo = new cPreventivo(costoP);
@@ -36,7 +36,7 @@ void cEquipo::RealizarMantPreventivo()
 void cEquipo::ChequearLugar()
 {
 	if (this->LugarGuarda != this->LugarAct)
-		throw new exception("El equipo no se encuentra en su lugar");
+		throw new exception("El equipo no se encuentra en su lugar");   //tenemos temitas, BRUNO
 
 }
 
@@ -70,6 +70,21 @@ void cEquipo::RealizarMantCorrectivo()
 void cEquipo::setNecesitaCorrectivo(bool a)
 {
 	this->NecesitaCorrectivo = a;
+}
+
+string cEquipo::getCodigo()
+{
+	return this->Codigo;
+}
+
+float cEquipo::getError()
+{
+	return this->Error;
+}
+
+void cEquipo::setError(float error)
+{
+	this->Error = error;
 }
 
 int cEquipo::CantEquipos = 0;

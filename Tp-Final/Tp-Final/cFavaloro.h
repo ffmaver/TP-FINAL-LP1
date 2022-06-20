@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <stdio.h>
+#include <string>
 #include "cLista.h"
 #include "cEquipo.h"
 #define MAXEQUIPOS 40
