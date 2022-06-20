@@ -8,6 +8,12 @@ cElectro::cElectro(int altura, int peso, float error, string codigo, string desc
 
 }
 
+int cElectro::Funcionar()
+{
+
+	return 0;
+}
+
 istream& operator>>(istream& in, cElectro& electro)
 {
 	cEquipo* aux = dynamic_cast<cEquipo*>(&electro);

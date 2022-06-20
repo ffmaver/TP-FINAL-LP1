@@ -36,6 +36,7 @@ int cRespirador::Funcionar(int flujo)
 			this->AlarmaPresion = true;  //si a es mayor al error, va a andar bien (si error fuera 0, va a andar siempre bien)
 
 	}
+	else this->AlarmaPresion = false;
 
 	if (this->getError() == 0)
 		return this->FlujoConfigSalida;   //si no tiene error, siempre devuelve el flujo configurado

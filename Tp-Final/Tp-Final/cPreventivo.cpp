@@ -12,6 +12,54 @@ cPreventivo::~cPreventivo()
 {
 }
 
+void cPreventivo::ControlarAlarmaPresion(cRespirador* respirador)
+{
+    respirador->setPresionPaciente(alta); //seteamos la presion en alta para que la alrma salte
+    respirador->Funcionar(15);
+    if (respirador->AlarmaPresion == false)
+        throw new exception("La alarma de presion no se activo.");
+
+    respirador->setPresionPaciente(sano); //seteamos la presion en alta para que la alrma salte
+    respirador->Funcionar(15);
+    if (respirador->AlarmaPresion)
+        throw new exception("La alarma anda mal.");
+}
+
+void cPreventivo::ControlarAlarmaFlujo(cRespirador* respirador)
+{
+    respirador->Funcionar(0);
+    if(respirador->AlarmaFlujoCero == false)
+        throw new exception("La alarma anda mal.");
+}
+
+void cPreventivo::ControlarAlarmaSuenio(cMesa* mesa)
+{
+    mesa->setSuenio(despertando);
+    mesa->Funcionar(15);
+    if(mesa->AlarmaSuenio==false)
+        throw new exception("La alarma anda mal.");
+
+    mesa->setSuenio(dormido);
+    mesa->Funcionar(15);
+    if (mesa->AlarmaSuenio)
+        throw new exception("La alarma anda mal.");
+}
+
+void cPreventivo::ControlarAlarmaFrecuencia(cMesa* mesa)
+{
+    mesa->setFrecuencia(Alta);
+    mesa->Funcionar(15);
+    if(mesa->AlarmaFrecuencia==false)
+        throw new exception("La alarma anda mal.");
+
+    mesa->setFrecuencia(Normal);
+    mesa->Funcionar(15);
+    if (mesa->AlarmaFrecuencia)
+        throw new exception("La alarma anda mal.");
+}
+
+
+
 void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
 {
     cRespirador* auxRespirador = dynamic_cast<cRespirador*>(equipo);
@@ -22,7 +70,7 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
     if (auxRespirador != NULL) {  //si es un respirador
         for (int i = 0; i < 10; i++) {    //lo hago 10 veces para asegurarme de que no falle nunca
             try {
-                this->ControlarAlarmaPresion();   //se controlan las alarmas, si alguna no funciona bien, salta una excepcion
+                this->ControlarAlarmaPresion(auxRespirador);   //se controlan las alarmas, si alguna no funciona bien, salta una excepcion
 
             }
             catch (exception e) {
@@ -32,7 +80,7 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
             }
             try {
                 
-                this->ControlarAlarmaFlujo(); //se controlan las alarmas, si alguna no funciona bien, salta una excepcion
+                this->ControlarAlarmaFlujo(auxRespirador); //se controlan las alarmas, si alguna no funciona bien, salta una excepcion
             }
             catch (exception e) {
                 cout << e.what();
@@ -48,7 +96,43 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
             }
         }
     }
+    else if (auxMesa != NULL) {
+        for (int i = 0; i < 10; i++) {
+            try {
+                this->ControlarAlarmaFrecuencia(auxMesa);   //se controlan las alarmas, si alguna no funciona bien, salta una excepcion
 
+            }
+            catch (exception e) {
+                cout << e.what();
+                equipo->setNecesitaCorrectivo(true);  //este equipo necesita mantenimiento correctivo
+                break;  //si el equipo falla cortamos el bucle
+            }
+            try {
+
+                this->ControlarAlarmaSuenio(auxMesa); //se controlan las alarmas, si alguna no funciona bien, salta una excepcion
+            }
+            catch (exception e) {
+                cout << e.what();
+                equipo->setNecesitaCorrectivo(true);
+                break;
+            }
+
+            int flujo = auxMesa->Funcionar(10);     //se prueba que el flujo de salida sea igual al configurado
+            if (flujo != auxMesa->FlujoConfig) {
+                equipo->setNecesitaCorrectivo(true);
+                cout << "El flujo de salida no es igual al configurado";
+                break;
+            }
+        }
+    }
+    else if (auxElectro != NULL) {
+        for (int i = 0; i < 10; i++) {
+
+
+        }
+
+
+    }
 
     
 }

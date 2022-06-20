@@ -4,14 +4,20 @@
 
 using namespace std;
 
+class cRespirador;
+class cMesa;
+class cElectro;
+
 class cPreventivo :
     public cMantenimiento
 {
 public:
     cPreventivo(int costo);
     ~cPreventivo();
-    void ControlarAlarmaPresion();
-    void ControlarAlarmaFlujo();
+    void ControlarAlarmaPresion(cRespirador* respirador);
+    void ControlarAlarmaFlujo(cRespirador* respirador);
+    void ControlarAlarmaSuenio(cMesa* mesa);
+    void ControlarAlarmaFrecuencia(cMesa* mesa);
     void ProbarVisualizacion();
     void ProbarModos();
     void ControlVolumen();

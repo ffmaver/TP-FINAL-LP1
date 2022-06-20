@@ -15,8 +15,7 @@ class cElectro :
 public:
     cElectro( int altura, int peso, float error, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
     ~cElectro();
-  //  void RealizarMantPreventivo();
-    void RealizarVisualizacion();
+    int Funcionar();
     friend ostream& operator<<(ostream& out, cElectro& electro);
     friend istream& operator>>(istream& in, cElectro& electro);
 };
