@@ -8,9 +8,18 @@ cElectro::cElectro(int altura, int peso, float error, string codigo, string desc
 
 }
 
+cElectro::~cElectro()
+{
+}
+
 int cElectro::Funcionar()
 {
-
+	int a = rand();
+	if (a < this->getError()) {     //si falla
+		throw new exception("No se pueden visualizar las traficaciones");
+	}
+	else
+		cout << "el electro anda bien" << endl;
 	return 0;
 }
 

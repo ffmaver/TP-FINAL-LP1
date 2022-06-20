@@ -21,7 +21,6 @@ class cMesa :
 public:                         
     cMesa(int altura, int peso, float error, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda);
     ~cMesa();
-    //void RealizarMantPreventivo();
     int Funcionar(int flujo);
     void setFrecuencia(frecuencia Frecuencia);
     void setSuenio(suenio Suenio);

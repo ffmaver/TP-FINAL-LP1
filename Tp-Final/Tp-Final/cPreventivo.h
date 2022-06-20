@@ -18,10 +18,6 @@ public:
     void ControlarAlarmaFlujo(cRespirador* respirador);
     void ControlarAlarmaSuenio(cMesa* mesa);
     void ControlarAlarmaFrecuencia(cMesa* mesa);
-    void ProbarVisualizacion();
-    void ProbarModos();
-    void ControlVolumen();
-    void ControlAlarma();
     void RealizarMantenimiento(cEquipo* equipo);
     friend ostream& operator<<(ostream& out, cPreventivo& prev);
 

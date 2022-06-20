@@ -127,8 +127,14 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
     }
     else if (auxElectro != NULL) {
         for (int i = 0; i < 10; i++) {
-
-
+            try {
+                auxElectro->Funcionar();
+            }
+            catch (exception e) {
+                cout << e.what();
+                equipo->setNecesitaCorrectivo(true);
+                break;
+            }
         }
 
 
