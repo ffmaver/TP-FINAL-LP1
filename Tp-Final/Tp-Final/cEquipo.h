@@ -52,6 +52,9 @@ public:
 	float getError();
 	void setError(float error);
 
+	cEquipo& operator++(); //preincremento
+	cEquipo& operator++(int dummy);  //post incremento
+	cEquipo& operator=(cEquipo& equipo);
 
 };
 

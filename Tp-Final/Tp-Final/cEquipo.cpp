@@ -87,6 +87,26 @@ void cEquipo::setError(float error)
 	this->Error = error;
 }
 
+cEquipo& cEquipo::operator++()
+{
+	this->Peso += 1;
+	return *this;
+}
+
+cEquipo& cEquipo::operator++(int dummy)
+{
+	cEquipo copia = *this;
+	this->Peso += 1;
+	return copia;
+}
+
+cEquipo& cEquipo::operator=(cEquipo& equipo)
+{
+	this->Altura = equipo.Altura;
+	this->Peso = equipo.Peso;
+	this->Codigo = equipo.Codigo;
+}
+
 int cEquipo::CantEquipos = 0;
 
 ostream& operator<<(ostream& out, cEquipo& equipo)
