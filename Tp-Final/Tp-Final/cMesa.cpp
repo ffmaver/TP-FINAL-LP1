@@ -14,12 +14,13 @@ cMesa::~cMesa()
 
 int cMesa::Funcionar(int flujo)
 {
-	this->Flujo= flujo;
+	this->Flujo= flujo; 
+	srand(time(NULL));
 	
 	if (this->Frecuencia == Baja || this->Frecuencia == Alta)  //si la presion del paciente es alta o baja, activamos la alarma 
 	{
-		int a = rand();
-		if (a < this->getError())
+		float a = (float)rand()/RAND_MAX;
+		if (a < this->getError()) //si el error es mayor a A la alarma esta fallando por lo wue no suena
 			this->AlarmaFrecuencia = false;  //pusimos un rand para que no todas las veces ande bien el equipo
 		else
 			this->AlarmaFrecuencia = true;  //si a es mayor al error, va a andar bien (si error fuera 0, va a andar siempre bien)
@@ -29,7 +30,7 @@ int cMesa::Funcionar(int flujo)
 
 	if (this->Suenio == despertando)  //si la presion del paciente es alta o baja, activamos la alarma 
 	{
-		int a = rand();
+		float a = (float)rand() / RAND_MAX;
 		if (a < this->getError())
 			this->AlarmaSuenio = false;  //pusimos un rand para que no todas las veces ande bien el equipo
 		else

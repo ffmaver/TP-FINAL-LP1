@@ -2,6 +2,11 @@
 #include "cMantenimiento.h"
 #include "cPreventivo.h"
 #include "cCorrectivo.h"
+#include "cFecha.h"
+#include "cEquipo.h"
+#include "cMesa.h"
+#include "cElectro.h"
+#include "cRespirador.h"
 
 cFavaloro::cFavaloro(int cuenta)
 {
@@ -27,16 +32,17 @@ void cFavaloro::ElegirEquipo()
 	}
 	catch (exception *e) {
 		cout << "El equipo " << (*(this->ListaEquipos))[a]->Codigo << " no esta en su lugar" << endl;
+		(*(this->ListaEquipos))[a]->LugarAct = (*(this->ListaEquipos))[a]->LugarGuarda; //si no esta en su lugar, o ponemos donde va
 	}
 
 }
 
-void cFavaloro::LlenarListasMantenimientos(cFecha* hoy)
+void cFavaloro::LlenarListasMantenimientos(cFecha* hoy) 
 {
 
-	for(int k=0;k< this->ListaEquipos->getCant(); k++)
+	for(int k=0;k< this->ListaEquipos->getCant(); k++) //recorre todos los equipos de favaloro y se fija uno por uno si nec mantenimiento 
 		for (int i = 0; i < (*(this->ListaEquipos))[k]->FechasMant->getCant(); i++) {
-			if ((*((*(this->ListaEquipos))[k]->FechasMant))[i] == hoy) {
+			if ((*((*((*(this->ListaEquipos))[k]->FechasMant))[i])) == hoy) {
 				(*(this->ListaPreventivo)) + (*(this->ListaEquipos))[k]; //si la fecha de hoy coincide con alguna de las fechas en las que 
 				(*(this->ListaEquipos))[k]->RealizarMantPreventivo();   //este equipo debe tener mant prev, lo agrego a la lista de mant prev
 			}															//y le realizamos dicho mantenimiento
@@ -59,7 +65,7 @@ void cFavaloro::DondeEstanLosEquipos()
 			(*(this->ListaEquipos))[i]->ChequearLugar();
 		}
 		catch (exception *e) {
-			cout << "El equipo " << (*(this->ListaEquipos))[i]->getCodigo() <<" no esta en su lugar"<< endl;
+			cout << "El equipo " << (*(this->ListaEquipos))[i]->getCodigo() <<" no esta en su lugar."<< endl;
 			cout << e->what() << endl;
 		}
 	}
@@ -69,19 +75,21 @@ void cFavaloro::ImprimirMantenimientos()
 {
 	int costoPreventivos = 0, costoCorrectivos = 0;
 
+	cout << endl << "Mantenimientos Preventivos de hoy" << endl; //podiamos aclarar la fecha pero es un caos
+
 	for (int i = 0; i < this->ListaPreventivo->getCant(); i++) {
 		costoPreventivos += (*(this->ListaPreventivo))[i]->Preventivo->getCosto();
-		cout << "Mantenimientos Preventivos de hoy" << endl; //podiamos aclarar la fecha pero es un caos
-		cout << (*(this->ListaPreventivo))[i] << (*(this->ListaPreventivo))[i]->Preventivo << endl;
+		cout << (*(*(this->ListaPreventivo))[i]) << (*(*(this->ListaPreventivo))[i]->Preventivo) << endl; //equipo << costo (la sobrecarga imprime costo y algo mas)
 
 	}
 
 	cout << "Costo total de los preventivos: " << to_string(costoPreventivos) << endl;
 
+	cout << endl << "Mantenimientos correctivos pendientes" << endl;
+
 	for (int i = 0; i < this->ListaCorrectivo->getCant(); i++) {
 		costoCorrectivos += (*(this->ListaCorrectivo))[i]->Correctivo->getCosto();
-		cout << "Mantenimientos correctivos pendientes" << endl; 
-		cout << (*(this->ListaCorrectivo))[i] << (*(this->ListaCorrectivo))[i]->Correctivo << endl;
+		cout << (*(*(this->ListaCorrectivo))[i]) << (*(*(this->ListaCorrectivo))[i]->Correctivo) << endl;
 		
 	}
 

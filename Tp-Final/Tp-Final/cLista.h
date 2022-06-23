@@ -52,9 +52,9 @@ inline void cLista<T>::Agregar(T* nuevo_item)
 			else
 				throw new exception("Ya se encontraba en la lista");
 		}
-		catch (exception e) {
-			if (e.what() == "Ya se encontraba en la lista")
-				cout << string(e.what()) << endl;
+		catch (exception *e) {
+			if (e->what() == "Ya se encontraba en la lista")
+				cout << string(e->what()) << endl;
 		}; //buscar lanza exception si no encuentra, pero no queremos imprimirla en este caso. Solo imprimimos si ya estaba en la lista
 
 	}

@@ -47,7 +47,7 @@ void cPreventivo::ControlarAlarmaSuenio(cMesa* mesa)
 
 void cPreventivo::ControlarAlarmaFrecuencia(cMesa* mesa)
 {
-    mesa->setFrecuencia(Alta);
+    mesa->setFrecuencia(Alta); //la frecuencia es alta, si es false va a estar rota, no apagada
     mesa->Funcionar(15);
     if(mesa->AlarmaFrecuencia==false)
         throw new exception("La alarma anda mal.");
@@ -73,8 +73,8 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
                 this->ControlarAlarmaPresion(auxRespirador);   //se controlan las alarmas, si alguna no funciona bien, salta una excepcion
 
             }
-            catch (exception e) {
-                cout << e.what();
+            catch (exception *e) {
+                cout << e->what();
                 equipo->setNecesitaCorrectivo(true);  //este equipo necesita mantenimiento correctivo
                 break;  //si el equipo falla cortamos el bucle
             }
@@ -82,8 +82,8 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
                 
                 this->ControlarAlarmaFlujo(auxRespirador); //se controlan las alarmas, si alguna no funciona bien, salta una excepcion
             }
-            catch (exception e) {
-                cout << e.what();
+            catch (exception *e) {
+                cout << e->what();
                 equipo->setNecesitaCorrectivo(true);   
                 break;
             }
@@ -102,8 +102,8 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
                 this->ControlarAlarmaFrecuencia(auxMesa);   //se controlan las alarmas, si alguna no funciona bien, salta una excepcion
 
             }
-            catch (exception e) {
-                cout << e.what();
+            catch (exception *e) {
+                cout << e->what();
                 equipo->setNecesitaCorrectivo(true);  //este equipo necesita mantenimiento correctivo
                 break;  //si el equipo falla cortamos el bucle
             }
@@ -111,8 +111,8 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
 
                 this->ControlarAlarmaSuenio(auxMesa); //se controlan las alarmas, si alguna no funciona bien, salta una excepcion
             }
-            catch (exception e) {
-                cout << e.what();
+            catch (exception *e) {
+                cout << e->what();
                 equipo->setNecesitaCorrectivo(true);
                 break;
             }
@@ -130,8 +130,8 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
             try {
                 auxElectro->Funcionar();
             }
-            catch (exception e) {
-                cout << e.what();
+            catch (exception *e) {
+                cout << e->what();
                 equipo->setNecesitaCorrectivo(true);
                 break;
             }
@@ -146,7 +146,7 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
 ostream& operator<<(ostream& out, cPreventivo& prev)
 {
     out << "Mantenimiento Preventivo" << endl;
-    cMantenimiento* aux = dynamic_cast<cMantenimiento*>(&prev);
+    cMantenimiento* aux = dynamic_cast<cMantenimiento*>(&prev); //casteo a cMant
     out << *aux;
     return out;
 }

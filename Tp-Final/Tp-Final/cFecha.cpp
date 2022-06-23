@@ -108,7 +108,7 @@ void cFecha::SiguienteDia()
 		this->fecha.tm_mon += 1;
 	}
 	else
-		this->fecha.tm_mday += 1; //revisar que el cambio de mes funcione
+		this->fecha.tm_mday += 1;
 }
 
 int cFecha::getDia()

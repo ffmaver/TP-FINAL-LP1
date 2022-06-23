@@ -36,7 +36,7 @@ void cEquipo::RealizarMantPreventivo()
 void cEquipo::ChequearLugar()
 {
 	if (this->LugarGuarda != this->LugarAct)
-		throw new exception("El equipo no se encuentra en su lugar");   //tenemos temitas, BRUNO
+		throw new exception("El equipo no se encuentra en su lugar");  
 
 }
 
@@ -105,6 +105,7 @@ cEquipo& cEquipo::operator=(cEquipo& equipo)
 	this->Altura = equipo.Altura;
 	this->Peso = equipo.Peso;
 	this->Codigo = equipo.Codigo;
+	return *this;
 }
 
 int cEquipo::CantEquipos = 0;

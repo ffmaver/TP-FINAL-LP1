@@ -15,11 +15,8 @@ cElectro::~cElectro()
 int cElectro::Funcionar()
 {
 	int a = rand();
-	if (a < this->getError()) {     //si falla
+	if (a < this->getError())     //si falla
 		throw new exception("No se pueden visualizar las traficaciones");
-	}
-	else
-		cout << "el electro anda bien" << endl;
 	return 0;
 }
 
