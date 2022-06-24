@@ -1,6 +1,6 @@
 #include "cRespirador.h"
 
-cRespirador::cRespirador(int altura, int peso, float error ,string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda):FlujoConfigSalida(FLUJO_CONFIG), cEquipo(altura, peso,error, codigo, descripcion, fechaMant, LugarGuarda, 50, 80)
+cRespirador::cRespirador(int altura, int peso, float error ,string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda):FlujoConfigSalida(FLUJO_CONFIG), cEquipo(altura, peso,error, codigo, descripcion, fechaMant, lugarGuarda, 50, 80)
 {
 	this->AlarmaPresion = false;
 	this->AlarmaFlujoCero = false;

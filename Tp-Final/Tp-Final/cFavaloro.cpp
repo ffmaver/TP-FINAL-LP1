@@ -19,9 +19,9 @@ cFavaloro::cFavaloro(int cuenta)
 
 cFavaloro::~cFavaloro()
 {
-	delete ListaCorrectivo;
+	//delete ListaPreventivo; NO SABEMOS PORQUE TIRA ERROR EN ESTA LINEA
 	delete ListaEquipos;
-	delete ListaPreventivo;
+	delete ListaCorrectivo;
 }
 
 void cFavaloro::ElegirEquipo()
@@ -39,13 +39,21 @@ void cFavaloro::ElegirEquipo()
 
 void cFavaloro::LlenarListasMantenimientos(cFecha* hoy) 
 {
+	int cant_act = this->ListaPreventivo->getCant();
+	for (int i = 0; i < cant_act; i++)
+	{
+		*this->ListaPreventivo - (*(this->ListaPreventivo))[i]; //antes de llenar la lista borramos la del dia anterior
+
+	}
 
 	for(int k=0;k< this->ListaEquipos->getCant(); k++) //recorre todos los equipos de favaloro y se fija uno por uno si nec mantenimiento 
 		for (int i = 0; i < (*(this->ListaEquipos))[k]->FechasMant->getCant(); i++) {
 			if ((*((*((*(this->ListaEquipos))[k]->FechasMant))[i])) == hoy) {
 				(*(this->ListaPreventivo)) + (*(this->ListaEquipos))[k]; //si la fecha de hoy coincide con alguna de las fechas en las que 
+				(*(this->ListaEquipos))[k]->LugarAct = sala_mantenimiento;
 				(*(this->ListaEquipos))[k]->RealizarMantPreventivo();   //este equipo debe tener mant prev, lo agrego a la lista de mant prev
-			}															//y le realizamos dicho mantenimiento
+				(*(this->ListaEquipos))[k]->LugarAct = almacenamiento;    //y le realizamos dicho mantenimiento
+			}                                                          
 		}															
 		
 
@@ -66,7 +74,7 @@ void cFavaloro::DondeEstanLosEquipos()
 		}
 		catch (exception *e) {
 			cout << "El equipo " << (*(this->ListaEquipos))[i]->getCodigo() <<" no esta en su lugar."<< endl;
-			cout << e->what() << endl;
+			(*(this->ListaEquipos))[i]->LugarAct = (*(this->ListaEquipos))[i]->LugarGuarda;
 		}
 	}
 }
@@ -74,8 +82,9 @@ void cFavaloro::DondeEstanLosEquipos()
 void cFavaloro::ImprimirMantenimientos()
 {
 	int costoPreventivos = 0, costoCorrectivos = 0;
-
-	cout << endl << "Mantenimientos Preventivos de hoy" << endl; //podiamos aclarar la fecha pero es un caos
+	system("pause");
+	system("cls");
+	cout << endl << "Mantenimientos Preventivos de hoy: " << endl; //podiamos aclarar la fecha pero es un caos
 
 	for (int i = 0; i < this->ListaPreventivo->getCant(); i++) {
 		costoPreventivos += (*(this->ListaPreventivo))[i]->Preventivo->getCosto();
@@ -85,7 +94,7 @@ void cFavaloro::ImprimirMantenimientos()
 
 	cout << "Costo total de los preventivos: " << to_string(costoPreventivos) << endl;
 
-	cout << endl << "Mantenimientos correctivos pendientes" << endl;
+	cout << endl << "Mantenimientos correctivos pendientes:" << endl;
 
 	for (int i = 0; i < this->ListaCorrectivo->getCant(); i++) {
 		costoCorrectivos += (*(this->ListaCorrectivo))[i]->Correctivo->getCosto();
@@ -106,7 +115,8 @@ void cFavaloro::RealizarMantCorrectivo(int costo)
 	this->CuentaCorriente -= costo;   //se paga
 	for (int i = 0; i < this->ListaCorrectivo->getCant(); i++) {
 		(*(this->ListaCorrectivo))[i]->RealizarMantCorrectivo();   //se realizan los mantenimientos
-
+		(*(this->ListaCorrectivo))[i]->LugarAct = almacenamiento;
+		(*this->ListaCorrectivo) - (*(this->ListaCorrectivo))[i];
 	}
 }
 

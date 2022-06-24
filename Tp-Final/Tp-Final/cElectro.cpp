@@ -1,6 +1,6 @@
 #include "cElectro.h"
 
-cElectro::cElectro(int altura, int peso, float error, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda):cEquipo(altura, peso, error,codigo, descripcion, fechaMant, LugarGuarda, 50, 80)
+cElectro::cElectro(int altura, int peso, float error, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda):cEquipo(altura, peso, error,codigo, descripcion, fechaMant, lugarGuarda, 50, 80)
 {
 	this->Enchufado = false;
 	this->Derivaciones = false;

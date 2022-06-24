@@ -16,8 +16,8 @@ cEquipo::cEquipo(int altura, int peso,float error, string codigo, string descrip
 	this->Estado = en_uso;
 	this->NecesitaCorrectivo = false;
 	this->FechasMant = fechaMant;   //podemos hacer que estas las haga el constructor de cada tipo de equipo asi quedan fijas
-	this->LugarGuarda = lugarGuarda;
-	this->LugarAct = sala_mantenimiento;
+	this->LugarGuarda = almacenamiento;
+	this->LugarAct = lugarGuarda; //nos confundimos pero este lugar es el actual
 	Preventivo = new cPreventivo(costoP);
 	Correctivo = new cCorrectivo(costoC);
 }

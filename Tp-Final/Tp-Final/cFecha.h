@@ -26,6 +26,7 @@ public:
 
 	bool operator ==(cFecha* fecha1);
 	bool operator !=(cFecha* fecha1);
+	friend ostream& operator<<(ostream& out, cFecha& fecha);
 
 
 };

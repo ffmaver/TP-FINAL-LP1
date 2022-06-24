@@ -53,9 +53,9 @@ int main()
 	cRespirador* respirador2 = new cRespirador( 20, 34,0, "Respirator2001", "es un respirador flaco", Calendario3, habitacion);
 	cRespirador* respirador3 = new cRespirador( 20, 34,0.5, "Respirator2002", "es un respirador flaco", Calendario3, habitacion);
 
-	cElectro* electro1 = new cElectro( 40, 50, 0,"electro1", "es un electro flaco", Calendario2, cardiologia);
-	cElectro* electro2 = new cElectro( 40, 50, 0.9,"electro2", "es un electro flaco", Calendario2, cardiologia);
-	cElectro* electro3 = new cElectro( 40, 50, 0.8,"electro3", "es un electro flaco", Calendario2, cardiologia);
+	cElectro* electro1 = new cElectro( 40, 50, 0,"Electro1", "es un electro flaco", Calendario2, cardiologia);
+	cElectro* electro2 = new cElectro( 40, 50, 0.9,"Electro2", "es un electro flaco", Calendario2, cardiologia);
+	cElectro* electro3 = new cElectro( 40, 50, 0.8,"Electro3", "es un electro flaco", Calendario2, cardiologia);
 
 	cMesa* Mesa1 = new cMesa( 30, 76, 0,"Mesa1", "es una mesa flaco", Calendario1, sala_operaciones);
 	cMesa* Mesa2 = new cMesa( 30, 76, 1,"Mesa2", "es una mesa flaco", Calendario1, sala_operaciones);
@@ -73,14 +73,21 @@ int main()
 	
 	while (true)
 	{
-		Favaloro->LlenarListasMantenimientos(Hoy);   //llena las listas con los equipos correspondientes y realiza los mantenimientos prev de hoy
+		system("pause");
+		system("cls");
 
+		cout << "Hoy es: " << *Hoy << endl;
+		Favaloro->LlenarListasMantenimientos(Hoy);   //llena las listas con los equipos correspondientes y realiza los mantenimientos prev de hoy
 		Favaloro->ImprimirMantenimientos();  //Muestra la lista de mantenimientos prev realizados y los correct pendientes (si corresponde realiza los correctivos)
+		system("pause");
+		system("cls");
+
 		Favaloro->DondeEstanLosEquipos();    //Al final del dia revisa que los equipos esten en su lugar (si estan mal, informa)
 
 		if (Hoy->FinaldeMes())
 			Favaloro->ElegirEquipo();   //Al final de cada mes se elige un equipo random para verificar
 	
+
 		Hoy->SiguienteDia();   //seteamos la fecha de hoy al dia siguiente (REVISAR QUE ANDE BIENNNNNNNNNNNNNNNNNNNN)
 
 		if (Hoy->getMes() == 2 && Hoy->getDia() == 3)   //el while termina cuando la fecha es 2/3/2022
@@ -116,10 +123,12 @@ int main()
 	for (int i = 0; i < 12; i++)
 		delete ListaFechas[i];
 
+
 	delete[] ListaFechas;
 
 
 	delete Favaloro;
+	delete Hoy;
 
 }
 

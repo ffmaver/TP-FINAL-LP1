@@ -22,14 +22,14 @@ void cPreventivo::ControlarAlarmaPresion(cRespirador* respirador)
     respirador->setPresionPaciente(sano); //seteamos la presion en alta para que la alrma salte
     respirador->Funcionar(15);
     if (respirador->AlarmaPresion)
-        throw new exception("La alarma anda mal.");
+        throw new exception("La alarma d presion anda mal.");
 }
 
 void cPreventivo::ControlarAlarmaFlujo(cRespirador* respirador)
 {
     respirador->Funcionar(0);
     if(respirador->AlarmaFlujoCero == false)
-        throw new exception("La alarma anda mal.");
+        throw new exception("La alarma de flujo anda mal.");
 }
 
 void cPreventivo::ControlarAlarmaSuenio(cMesa* mesa)
@@ -37,12 +37,12 @@ void cPreventivo::ControlarAlarmaSuenio(cMesa* mesa)
     mesa->setSuenio(despertando);
     mesa->Funcionar(15);
     if(mesa->AlarmaSuenio==false)
-        throw new exception("La alarma anda mal.");
+        throw new exception("La alarma de suenio anda mal.");
 
     mesa->setSuenio(dormido);
     mesa->Funcionar(15);
     if (mesa->AlarmaSuenio)
-        throw new exception("La alarma anda mal.");
+        throw new exception("La alarma de suenio anda mal.");
 }
 
 void cPreventivo::ControlarAlarmaFrecuencia(cMesa* mesa)
@@ -50,12 +50,12 @@ void cPreventivo::ControlarAlarmaFrecuencia(cMesa* mesa)
     mesa->setFrecuencia(Alta); //la frecuencia es alta, si es false va a estar rota, no apagada
     mesa->Funcionar(15);
     if(mesa->AlarmaFrecuencia==false)
-        throw new exception("La alarma anda mal.");
+        throw new exception("La alarma de frecuencia anda mal.");
 
     mesa->setFrecuencia(Normal);
     mesa->Funcionar(15);
     if (mesa->AlarmaFrecuencia)
-        throw new exception("La alarma anda mal.");
+        throw new exception("La alarma de frecuencia anda mal.");
 }
 
 
@@ -91,7 +91,7 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
             int flujo = auxRespirador->Funcionar(10);     //se prueba que el flujo de salida sea igual al configurado
             if (flujo != auxRespirador->FlujoConfigSalida) {
                 equipo->setNecesitaCorrectivo(true);
-                cout<<"El flujo de salida no es igual al configurado";
+                cout<<"El flujo de salida no es igual al configurado"<< endl;
                 break;
             }
         }
@@ -120,7 +120,7 @@ void cPreventivo::RealizarMantenimiento(cEquipo* equipo)
             int flujo = auxMesa->Funcionar(10);     //se prueba que el flujo de salida sea igual al configurado
             if (flujo != auxMesa->FlujoConfig) {
                 equipo->setNecesitaCorrectivo(true);
-                cout << "El flujo de salida no es igual al configurado";
+                cout << "El flujo de salida no es igual al configurado" <<endl;
                 break;
             }
         }

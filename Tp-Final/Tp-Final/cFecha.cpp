@@ -149,11 +149,16 @@ bool cFecha::operator!=(cFecha* fecha1)
 		return false;
 	return true;
 }
+ostream& operator<<(ostream& out, cFecha& fecha)
+{
+	out << to_string(fecha.fecha.tm_mday) << "/" << to_string(fecha.fecha.tm_mon) << "/" << to_string(fecha.fecha.tm_year+1900)<<endl;
+	return out;
+}
 
 //string cFecha::To_string()
 //{
 //	return to_string(fecha.tm_year + 1900) +
-//		"/" + to_string(fecha.tm_mon + 1) +
+//		"/" + to_string(fecha.tm_mon + 1) 
 //		"/" + to_string(fecha.tm_mday);
 //}
 //

@@ -1,6 +1,6 @@
 #include "cMesa.h"
 
-cMesa::cMesa(int altura, int peso, float error, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda):  cEquipo(altura,peso,error,codigo,descripcion,fechaMant,LugarGuarda,50,100), FlujoConfig(FLUJO_FIJADO)
+cMesa::cMesa(int altura, int peso, float error, string codigo, string descripcion, cListaFechas* fechaMant, lugar lugarGuarda):  cEquipo(altura,peso,error,codigo,descripcion,fechaMant,lugarGuarda,50,100), FlujoConfig(FLUJO_FIJADO)
 {
 	this->Flujo = 0;
 	this->AlarmaFrecuencia = false;
