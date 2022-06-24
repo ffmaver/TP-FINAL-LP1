@@ -1,8 +1,5 @@
 ﻿  Tp-Final.cpp
-C:\Users\sol\Desktop\Favaloro\Segundo\Labo\TP_FINAL\Tp-Final\Tp-Final\Tp-Final.cpp(52,126): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\sol\Desktop\Favaloro\Segundo\Labo\TP_FINAL\Tp-Final\Tp-Final\Tp-Final.cpp(57,109): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\sol\Desktop\Favaloro\Segundo\Labo\TP_FINAL\Tp-Final\Tp-Final\Tp-Final.cpp(58,109): warning C4305: 'argument': truncation from 'double' to 'float'
-  cEquipo.cpp
-  cFavaloro.cpp
-  Generating Code...
+C:\Users\sol\Desktop\Favaloro\Segundo\Labo\TP_FINAL\Tp-Final\Tp-Final\Tp-Final.cpp(55,126): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\sol\Desktop\Favaloro\Segundo\Labo\TP_FINAL\Tp-Final\Tp-Final\Tp-Final.cpp(60,109): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\sol\Desktop\Favaloro\Segundo\Labo\TP_FINAL\Tp-Final\Tp-Final\Tp-Final.cpp(61,109): warning C4305: 'argument': truncation from 'double' to 'float'
   Tp-Final.vcxproj -> C:\Users\sol\Desktop\Favaloro\Segundo\Labo\TP_FINAL\Tp-Final\x64\Debug\Tp-Final.exe

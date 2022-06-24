@@ -6,6 +6,8 @@
 #include "cCorrectivo.h"
 #include "cPreventivo.h"
 #include "cFavaloro.h"
+#include <windows.h>
+#include <cstdlib>
 
 #define MAX_FECHAS 12
 
@@ -95,7 +97,13 @@ int main()
 	
 	}
 
-	
+	system("pause");
+	system("cls");
+
+	system("Bruno.jpeg");
+
+	system("pause");
+
 
 	delete Mesa2;
 	delete Mesa1;
